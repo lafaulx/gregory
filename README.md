@@ -66,6 +66,7 @@ Messages object:
 		}
 	}
 }
+```
 
 ## Test page
 Test page is provided in the package and requires no preparations - just open html and enjoy. Gregory modes are changed on headline click, months/years are switched on arrows click.
