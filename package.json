@@ -1,0 +1,22 @@
+{
+	"name": "Gregory",
+	"version": "0.2.0",
+	"keywords": ["gregory", "calendar"],
+	"author": "Yaroslav Kravchenko ",
+	"preferGlobal": true,
+	"private": false,
+	"devDependencies": {
+		"fuller": "~0.2.0",
+		"fuller-less": "~0.2.0",
+		"fuller-concat": "~0.2.0",
+		"fuller-common-js": "~0.2.0",
+		"fuller-uglify": "~0.2.0"
+	},
+	"engines": {
+		"node": "~0.10.15"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:lafaulx/gregory.git"
+	}
+}
