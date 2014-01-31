@@ -2,25 +2,25 @@
 <html>
 <head>
     <title>Gregory test</title>
-    <link rel="stylesheet" href="../css/gregory.css">
+    <link rel="stylesheet" href="../package/css/gregory.css">
 </head>
 <body>
 <div></div>
 <p></p>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="../js/gregory.min.js"></script>
+<script src="../package/js/gregory.js"></script>
 <script>
     $(document).ready(function() {
-        var g = new Gregory({
-            onDateSelect: function(date) {
-                $("p").html("Day: " + date.day + ", month: " + date.month + ", year: " + date.year);
-            }
-        });
+        var g1 = new Gregory({
+                onDateSelect: function(date) {
+                    $("p").html("Day: " + date.day + ", month: " + date.month + ", year: " + date.year);
+                }
+            });
 
-        $("div").append(g.$b);
-        g.init({
+        $("div").append(g1.$b);
+        g1.init({
             date: new Date()
-        })
+        });
     });
 </script>
 

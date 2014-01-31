@@ -5,11 +5,21 @@ Gregory is a cool calendar with localisation support. It's built without old sch
 
 ## Package content and installation
 
-* css - some default css, needed for Gregory
-* svg - svg icons, used in Gregory font
-* font - font, composed of svg icons, described before
-* js - Gregory script itself - original and uglified
+* package/css - some default css, needed for Gregory
+* package/svg - svg icons, used in Gregory font
+* package/font - font, composed of svg icons, described before
+* package/js - Gregory script itself
+* src/less - source less
+* src/js - source js
 * test - just test page - run it and check the plugin out 
+
+In case you want to change something in source files - you'll need to compile them afterwards. Source files can be compiled with cool Fuller tool:
+```
+npm install 		// installs Fuller itself - node.js required
+fuller 				// compiles source files
+```
+
+In case you don't want to install Fuller - then act as you like.
 
 Additional dependency to all that stuff - jQuery - looking forward to get rid of it.
 
@@ -41,6 +51,7 @@ Options object looks like this:
     onDateSelect: function(dateState) {    // selected state callback, state will be described further
         console.log(dateState);
     },
+    viewReverse: bool,					   // reverses Gregory view if true - controls and info will be at the bottom and dates - at the top
     weekDayStart: "MON" || "SUN",		   // optional, sets week start day - Monday default
     messages: {}						   // optional, localisation file - english month names default, will be described further
 }
