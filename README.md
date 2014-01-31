@@ -5,21 +5,21 @@ Gregory is a cool calendar with localisation support. It's built without old sch
 
 ## Package content and installation
 
-* package/css - some default css, needed for Gregory
-* package/svg - svg icons, used in Gregory font
-* package/font - font, composed of svg icons, described before
-* package/js - Gregory script itself
+* build/css - some default css, needed for Gregory
+* build/svg - svg icons, used in Gregory font
+* build/font - font, composed of svg icons, described before
+* build/js - Gregory script itself
 * src/less - source less
 * src/js - source js
 * test - just test page - run it and check the plugin out 
 
-In case you want to change something in source files - you'll need to compile them afterwards. Source files can be compiled with cool Fuller tool:
+In case you want to change something in source files - you'll need to compile them afterwards. Source files can be compiled with cool (Fuller)[https://github.com/fullerjs] tool:
 ```
 npm install 		// installs Fuller itself - node.js required
 fuller 				// compiles source files
 ```
 
-In case you don't want to install Fuller - then act as you like.
+In case you don't want to install Fuller - act as you wish.
 
 Additional dependency to all that stuff - jQuery - looking forward to get rid of it.
 

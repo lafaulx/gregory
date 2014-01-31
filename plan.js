@@ -2,7 +2,7 @@
 
 var defaults = {
 	src: "./src",
-	dst: "./package"
+	dst: "./build"
 };
 
 var less = {
