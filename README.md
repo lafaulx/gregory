@@ -13,7 +13,7 @@ Gregory is a cool calendar with localisation support. It's built without old sch
 * src/js - source js
 * test - just test page - run it and check the plugin out 
 
-In case you want to change something in source files - you'll need to compile them afterwards. Source files can be compiled with cool (Fuller)[https://github.com/fullerjs] tool:
+In case you want to change something in source files - you'll need to compile them afterwards. Source files can be compiled with cool [Fuller](https://github.com/fullerjs) tool:
 ```
 npm install 		// installs Fuller itself - node.js required
 fuller 				// compiles source files
