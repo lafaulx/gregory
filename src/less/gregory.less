@@ -39,11 +39,11 @@
 	z-index: 1000;
 	font-weight: normal;
 
-	.active {
+	.gregory-active {
 		color: @accent !important;
 	}
 
-	.wrapper {
+	.gregory-wrapper {
 		width: 210px;
 		margin: auto;
 
@@ -74,19 +74,19 @@
 		}
 	}
 
-	.day {
-		li, .change {
+	.gregory-day {
+		li, .gregory-change {
 			width: 30px;
 		}
 	}
 
-	.month, .year {
-		li, .change {
+	.gregory-month, .gregory-year {
+		li, .gregory-change {
 			width: 70px;
 		}
 	}
 
-	.date-info {
+	.gregory-date-info {
 		text-align: center;
 
 		a {
@@ -101,7 +101,7 @@
 		}
 	}
 
-	.change {
+	.gregory-change {
 		font-size: 27px;
 	    height: 30px;
 	    position: absolute;
@@ -109,38 +109,38 @@
 		color: #FFF !important;
 	}
 
-	.change.back {
+	.gregory-change.gregory-back {
 		left: 12px;
 	}
 
-	.change.forward {
+	.gregory-change.gregory-forward {
 		right: 12px;
 	}
 
-	.change:hover {
+	.gregory-change:hover {
 		color: @accent !important;
 	}
 
-	&.endian {
-		.date-info {
+	&.gregory-endian {
+		.gregory-date-info {
 			height: 60px;
 		}
 
-		.change {
+		.gregory-change {
 			top: 13px;
 		}
 	}
 
-	&.reverse {
-		.wrapper {
+	&.gregory-reverse {
+		.gregory-wrapper {
 			padding-top: 7px;
 		}
 
-		.date-info {
+		.gregory-date-info {
 			height: 38px;
 		}
 
-		.change {
+		.gregory-change {
 			bottom: 5px;
 		}
 	}

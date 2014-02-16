@@ -82,7 +82,7 @@ var Gregory = function (opts) {
 	self.weekStartDay = opts.weekStartDay || defaultStartDay;
 	self.onDateSelect = opts.onDateSelect;
 	self.messages = opts.messages || defaultMessages;
-	self.viewReverse = opts.viewReverse;
+	self.viewReverse = opts.flip;
 
 	self.generateDOM();
 
@@ -92,7 +92,7 @@ var Gregory = function (opts) {
 		e.stopPropagation();
 	});
 
-	self.$b.on("click.gregory", "a.change", function(e) {
+	self.$b.on("click.gregory", "a.gregory-change", function(e) {
 		e.preventDefault();
 
 		var $self = $(this),
@@ -180,7 +180,7 @@ Gregory.prototype = {
 		var self = this;
 
 		if (self.displayState.mode === self.modes.day) {
-			self.$calendarWrapper.find(".active").removeClass("active");
+			self.$calendarWrapper.find(".gregory-active").removeClass("gregory-active");
 
 			if (!$d) {
 				var selector = "a[href='#/" + selectedState.year + (selectedState.month === 0 || selectedState.month ? ("/" + selectedState.month + (selectedState.day ? "/" + selectedState.day : "")) : "") + "']";
@@ -188,7 +188,7 @@ Gregory.prototype = {
 				$d = self.$calendarWrapper.find(selector);
 			}
 
-			$d.addClass("active");
+			$d.addClass("gregory-active");
 		}
 
 		self.setSelectedState(selectedState);
@@ -206,18 +206,18 @@ Gregory.prototype = {
 	},
 	generateDOM: function() {
 		var self = this,
-			$dateInfoWrapper = $("<div class='date-info'><a href='#/'></a></div>");
+			$dateInfoWrapper = $("<div class='gregory-date-info'><a href='#/'></a></div>");
 
 		if (self.viewReverse) {
-			self.$b.addClass("reverse");
+			self.$b.addClass("gregory-reverse");
 		} else {
-			self.$b.addClass("endian");
+			self.$b.addClass("gregory-endian");
 		}
 
-		self.$calendarWrapper = $("<div class='wrapper'></div>");
+		self.$calendarWrapper = $("<div class='gregory-wrapper'></div>");
 		self.$dateInfo = $dateInfoWrapper.find("a");
-		self.$changeBack = $("<a class='change back gregory-icon-left' href='#'></a>");
-		self.$changeForward = $("<a class='change forward gregory-icon-right' href='#'></a>");
+		self.$changeBack = $("<a class='gregory-change gregory-back gregory-icon-left' href='#'></a>");
+		self.$changeForward = $("<a class='gregory-change gregory-forward gregory-icon-right' href='#'></a>");
 
 		self.$b.append(self.$calendarWrapper);
 		self.$b.prepend($dateInfoWrapper);
@@ -253,7 +253,7 @@ Gregory.prototype = {
 			daysInMonth = self.getDaysInMonth(self.displayState.year, self.displayState.month),
 			startingDay = self.weekStartDay === "MON" ? (firstDay === 0 ? 6 : firstDay - 1) : firstDay;
 
-		var html = '<ul class="day">',
+		var html = '<ul class="gregory-day">',
 			day = 1,
 			dateBack = self.decrementMonth(self.displayState.year, self.displayState.month),
 			dateFuture = self.incrementMonth(self.displayState.year, self.displayState.month);
@@ -264,7 +264,7 @@ Gregory.prototype = {
 		for (var i = 0; i < 9; i++) {
 			for (var j = 0; j <= 6; j++) {
 				if (day <= daysInMonth && ((j >= startingDay && i === 0) || i > 0)) {
-					html += "<li><a class='" + (self.isDayActive(day) ? "active" : "") + "' href='#/" + self.displayState.year + "/" + self.displayState.month + "/" + day + "'>" + day + "</a></li>";
+					html += "<li><a class='" + (self.isDayActive(day) ? "gregory-active" : "") + "' href='#/" + self.displayState.year + "/" + self.displayState.month + "/" + day + "'>" + day + "</a></li>";
 					day++;
 				} else if (day > daysInMonth) {
 					break;
@@ -284,14 +284,14 @@ Gregory.prototype = {
 	},
 	generateMonthCalendar: function() {
 		var self = this,
-			html = '<ul class="month">',
+			html = '<ul class="gregory-month">',
 			month = 0;
 
 		self.setChange(self.displayState.year - 1, self.displayState.year + 1);
 
 		for (var i = 0; i < 4; i++) {
 			for (var j = 0; j <= 2; j++) {
-				html += "<li><a class='" + (self.isMonthActive(month) ? "active'" : "") + "' href='#/" + self.displayState.year + "/" + month + "'>" + self.messages.months[month].s + "</a></li>";
+				html += "<li><a class='" + (self.isMonthActive(month) ? "gregory-active'" : "") + "' href='#/" + self.displayState.year + "/" + month + "'>" + self.messages.months[month].s + "</a></li>";
 				month++;
 			}
 
@@ -306,14 +306,14 @@ Gregory.prototype = {
 	},
 	generateYearCalendar: function() {
 		var self = this,
-			html = '<ul class="year">',
+			html = '<ul class="gregory-year">',
 			year = self.displayState.twelfth - 11;
 
 		self.setChange(year - 1, self.displayState.twelfth + 12);
 
 		for (var i = 0; i < 4; i++) {
 			for (var j = 0; j <= 2; j++) {
-				html += "<li><a class='" + (self.isYearActive(year) ? "active'" : "") + "' href='#/" + year + "'>" + year + "</a></li>";
+				html += "<li><a class='" + (self.isYearActive(year) ? "gregory-active'" : "") + "' href='#/" + year + "'>" + year + "</a></li>";
 				year++;
 			}
 
@@ -335,7 +335,7 @@ Gregory.prototype = {
 	setDateActive: function() {
 		var self = this;
 
-		self.$calendarWrapper.find("a[href='#/" + self.formUrl + "']").addClass("active");
+		self.$calendarWrapper.find("a[href='#/" + self.formUrl + "']").addClass("gregory-active");
 	},
 	decrementMonth: function(year, month) {
 		var self = this,

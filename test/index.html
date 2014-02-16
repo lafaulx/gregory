@@ -12,6 +12,7 @@
 <script>
     $(document).ready(function() {
         var g1 = new Gregory({
+                flip: true,
                 onDateSelect: function(date) {
                     $("p").html("Day: " + date.day + ", month: " + date.month + ", year: " + date.year);
                 }

@@ -51,7 +51,7 @@ Options object looks like this:
     onDateSelect: function(dateState) {    // selected state callback, state will be described further
         console.log(dateState);
     },
-    viewReverse: bool,					   // reverses Gregory view if true - controls and info will be at the bottom and dates - at the top
+    flip: bool,						       // flip Gregory view if true - controls and info will be at the bottom and dates - at the top
     weekDayStart: "MON" || "SUN",		   // optional, sets week start day - Monday default
     messages: {}						   // optional, localisation file - english month names default, will be described further
 }
